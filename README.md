@@ -2,14 +2,6 @@
 
 
 
-This project is a practical test application developed using \*\*ASP.NET MVC\*\*, \*\*MSSQL\*\*, and \*\*Stored Procedures\*\*. It allows users to manage products, customers, and generate invoices.
-
-
-
-\---
-
-
-
 \## 🚀 Features
 
 
@@ -64,7 +56,7 @@ This project is a practical test application developed using \*\*ASP.NET MVC\*\*
 
 \- RDLC / Crystal Reports
 
-\- HTML, CSS, Bootstrap, JavaScript
+\- HTML, CSS, Tailwind, JavaScript
 
 
 
@@ -91,18 +83,4 @@ This project is a practical test application developed using \*\*ASP.NET MVC\*\*
 &#x20; - InvoiceDetails
 
 
-
-\---
-
-
-
-\## ⚙️ Setup Instructions
-
-
-
-1\. Clone the repository:
-
-&#x20;  ```bash
-
-&#x20;  git clone https://github.com/Amrita-Dey3792/Playon24.git
 
