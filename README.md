@@ -1,78 +1,57 @@
-\# 🧾 ASP.NET Invoice Management System
+# 🧾 ASP.NET Invoice Management System
+
+## 🚀 Features
+
+
+### 1. Product Management
+
+- Create new products
+
+- Store product details (Name, Price, Quantity, etc.)
+
+
+### 2. Customer Management
+
+- Add customers with basic information
+
+- Form validation (Required fields, email format, etc.)
+
+
+### 3. Invoice Generation
+
+- Sell products to customers
+
+- Generate invoices using \*\*RDLC / Crystal Report\*\*
+
+- Automatically calculate totals
+
+
+### 4. Invoice List
+
+- View all invoices
+
+- Filter/search invoices by \*\*Customer\*\*
+
+
+## 🛠️ Technologies Used
 
 
 
-\## 🚀 Features
+- ASP.NET MVC
+
+- MySQL
+
+- EF Core
+
+- RDLC / Crystal Reports
+
+- HTML, CSS, Tailwind, JavaScript
 
 
 
-\### 1. Product Management
+## 🗄️ Database
 
-\- Create new products
-
-\- Store product details (Name, Price, Quantity, etc.)
-
-
-
-\### 2. Customer Management
-
-\- Add customers with basic information
-
-\- Form validation (Required fields, email format, etc.)
-
-
-
-\### 3. Invoice Generation
-
-\- Sell products to customers
-
-\- Generate invoices using \*\*RDLC / Crystal Report\*\*
-
-\- Automatically calculate totals
-
-
-
-\### 4. Invoice List
-
-\- View all invoices
-
-\- Filter/search invoices by \*\*Customer\*\*
-
-
-
-\---
-
-
-
-\## 🛠️ Technologies Used
-
-
-
-\- ASP.NET MVC
-
-\- MySQL
-
-\- EF Core
-
-\- RDLC / Crystal Reports
-
-\- HTML, CSS, Tailwind, JavaScript
-
-
-
-\---
-
-
-
-\## 🗄️ Database
-
-
-
-\- SQL Server (MSSQL)
-
-\- All operations are handled using \*\*Stored Procedures\*\*
-
-\- Tables:
+- Tables:
 
 &#x20; - Products
 
