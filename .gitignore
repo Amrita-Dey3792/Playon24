@@ -1,0 +1,58 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+[Bb]in/
+[Oo]bj/
+artifacts/
+publish/
+**/bin/
+**/obj/
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+
+# NuGet
+*.nupkg
+packages/
+
+# Dotnet artifacts
+*.dll
+*.exe
+*.pdb
+*.log
+
+# User secrets and sensitive files
+secrets.json
+appsettings.Development.json
+
+# Database files
+*.mdf
+*.ldf
+*.sqlite
+*.db
+
+# Node
+node_modules/
+
+# Resharper
+_ReSharper*/
+*.ReSharper
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated reports / tooling
+*.vspscc
+ScaffoldingReadMe.txt
+ReportViewerCore.NETCore/bin/
+ReportViewerCore.NETCore/obj/

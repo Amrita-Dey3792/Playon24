@@ -1,0 +1,75 @@
+@using Playon24.Web.Controllers
+@using Playon24.Domain.Entities
+@model Invoice
+@{
+    ViewData["Title"] = "Invoice " + Model.InvoiceNumber;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var customer = Model.Customer;
+}
+
+<div class="max-w-4xl mx-auto p-3 md:p-6">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+        <div>
+            <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">@Model.InvoiceNumber</h1>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                @(customer != null ? $"{customer.FirstName} {customer.LastName}" : $"Customer #{Model.CustomerID}")
+                · @Model.CreatedAt.ToLocalTime().ToString("g")
+            </p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+            <a asp-action="@nameof(InvoiceController.ReportPdf)" asp-route-id="@Model.InvoiceID" target="_blank"
+               class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-2xl text-sm font-medium">
+                <i class="fas fa-file-pdf"></i> RDLC PDF
+            </a>
+            <a asp-action="@nameof(InvoiceController.Index)" class="inline-flex items-center px-5 py-2.5 rounded-2xl border border-gray-300 dark:border-gray-600 text-sm font-medium">Back to list</a>
+        </div>
+    </div>
+
+    <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl p-6 mb-6">
+        <dl class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+            <div>
+                <dt class="text-gray-500 dark:text-gray-400">Subtotal</dt>
+                <dd class="font-semibold text-gray-900 dark:text-white">@Model.SubTotal.ToString("C")</dd>
+            </div>
+            <div>
+                <dt class="text-gray-500 dark:text-gray-400">Discount</dt>
+                <dd class="font-semibold text-gray-900 dark:text-white">@Model.DiscountAmount.ToString("C")</dd>
+            </div>
+            <div>
+                <dt class="text-gray-500 dark:text-gray-400">Tax</dt>
+                <dd class="font-semibold text-gray-900 dark:text-white">@Model.TaxAmount.ToString("C")</dd>
+            </div>
+            <div>
+                <dt class="text-gray-500 dark:text-gray-400">Grand total</dt>
+                <dd class="font-semibold text-lg text-gray-900 dark:text-white">@Model.GrandTotal.ToString("C")</dd>
+            </div>
+        </dl>
+        <p class="mt-4 text-sm"><span class="text-gray-500">Payment:</span> <span class="font-medium">@Model.PaymentStatus</span></p>
+    </div>
+
+    <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden">
+        <table class="min-w-full text-sm">
+            <thead class="bg-gray-50 dark:bg-gray-800 text-left text-gray-600 dark:text-gray-300">
+                <tr>
+                    <th class="px-5 py-3 font-medium">Product</th>
+                    <th class="px-5 py-3 font-medium text-right">Qty</th>
+                    <th class="px-5 py-3 font-medium text-right">Unit</th>
+                    <th class="px-5 py-3 font-medium text-right">Disc %</th>
+                    <th class="px-5 py-3 font-medium text-right">Line total</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                @foreach (var line in Model.InvoiceDetails.OrderBy(d => d.InvoiceDetailID))
+                {
+                    <tr>
+                        <td class="px-5 py-3">@(line.Product?.ProductName ?? $"#{line.ProductID}")</td>
+                        <td class="px-5 py-3 text-right">@line.Quantity</td>
+                        <td class="px-5 py-3 text-right">@line.UnitPrice.ToString("C")</td>
+                        <td class="px-5 py-3 text-right">@line.DiscountPercent.ToString("0.##")</td>
+                        <td class="px-5 py-3 text-right font-medium">@line.LineTotal.ToString("C")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

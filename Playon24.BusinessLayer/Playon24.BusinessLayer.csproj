@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Playon24.DataAccessLayer\Playon24.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\Playon24.Domain\Playon24.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

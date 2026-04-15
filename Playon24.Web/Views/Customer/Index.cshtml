@@ -1,0 +1,120 @@
+@using Playon24.Web.Controllers
+@using Playon24.PresentationLayer.Modules.Customers.ViewModels
+
+@{
+    ViewData["Title"] = "Customers";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model IReadOnlyList<CustomerListViewModel>
+
+<div class="p-6">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-6">
+        <div>
+            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">All Customers</h2>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                Total Customers: <span class="font-medium">@Model.Count</span>
+            </p>
+        </div>
+
+        <a asp-action="@nameof(CustomerController.Create)"
+           class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-sm font-medium transition">
+            <i class="fas fa-plus"></i>
+            <span>New Customer</span>
+        </a>
+    </div>
+
+    <!-- Table -->
+    <div class="overflow-x-auto bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
+        <table class="min-w-full text-sm text-left text-gray-600 dark:text-gray-300">
+
+            <!-- Table Head -->
+            <thead class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 uppercase text-xs">
+                <tr>
+                    <th class="px-6 py-3">Name</th>
+                    <th class="px-6 py-3">City</th>
+                    <th class="px-6 py-3">Email</th>
+                    <th class="px-6 py-3">Phone</th>
+                    <th class="px-6 py-3 text-center">Actions</th>
+                </tr>
+            </thead>
+
+            <!-- Table Body -->
+            <tbody>
+                @if (Model.Any())
+                {
+                    foreach (var c in Model)
+                    {
+                        <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+
+                            <!-- Name -->
+                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                @c.FullName
+                            </td>
+
+                            <!-- City -->
+                            <td class="px-6 py-4">
+                                @c.City
+                            </td>
+
+                            <!-- Email -->
+                            <td class="px-6 py-4 truncate max-w-[200px]" title="@c.Email">
+                                @c.Email
+                            </td>
+
+                            <!-- Phone -->
+                            <td class="px-6 py-4">
+                                @c.Phone
+                            </td>
+
+                            <!-- Actions -->
+                            <td class="px-6 py-4 text-center">
+                                <div class="flex justify-center gap-2">
+
+                                    <!-- View -->
+                                    <a asp-action="@nameof(CustomerController.Details)"
+                                       asp-route-id="@c.Id"
+                                       class="flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/30 dark:text-blue-400 rounded-lg transition">
+                                        <i class="fas fa-eye"></i>
+                                        View
+                                    </a>
+
+                                    <!-- Edit -->
+                                    <a asp-action="@nameof(CustomerController.Update)"
+                                       asp-route-id="@c.Id"
+                                       class="flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-yellow-600 bg-yellow-100 hover:bg-yellow-200 dark:bg-yellow-900/30 dark:text-yellow-400 rounded-lg transition">
+                                        <i class="fas fa-edit"></i>
+                                        Edit
+                                    </a>
+
+                                    <!-- Delete -->
+                                    <a asp-action="@nameof(CustomerController.Delete)"
+                                       asp-route-id="@c.Id"
+                                       class="flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-red-600 bg-red-100 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-400 rounded-lg transition">
+                                        <i class="fas fa-trash"></i>
+                                        Delete
+                                    </a>
+
+                                </div>
+                            </td>
+
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" class="text-center py-12 text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-users text-4xl mb-3"></i>
+                            <p>No customers found</p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

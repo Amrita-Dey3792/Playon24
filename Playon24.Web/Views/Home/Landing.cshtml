@@ -1,0 +1,146 @@
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+<section class="mb-10 sm:mb-12" aria-roledescription="carousel" aria-label="Featured highlights">
+    <div class="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-800 bg-gray-900 shadow-lg ring-1 ring-black/5 dark:ring-white/10">
+        <div id="carouselViewport" class="relative aspect-[21/9] min-h-[14rem] sm:min-h-[18rem] md:aspect-[2.4/1]">
+            <div id="carouselTrack"
+                 class="flex h-full transition-transform duration-500 ease-out motion-reduce:transition-none"
+                 style="width: 300%;">
+                <article class="relative h-full w-1/3 shrink-0" data-carousel-slide="0" aria-hidden="false">
+                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1600&q=80"
+                         alt="Shopping bags and gifts"
+                         class="absolute inset-0 h-full w-full object-cover" loading="eager" />
+                    <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/60"></div>
+                    <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6 sm:p-10 md:p-12 max-w-3xl mx-auto">
+                        <p class="text-sm font-semibold uppercase tracking-widest text-blue-300 mb-2">New season</p>
+                        <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-3">Deals you will love</h1>
+                        <p class="text-gray-200 text-sm sm:text-base mb-6 max-w-md mx-auto">Curated picks across electronics, fashion, and home — all in one place.</p>
+                        <a asp-controller="Home" asp-action="Privacy"
+                           class="inline-flex items-center justify-center gap-2 rounded-3xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-blue-700 active:scale-95">
+                            Learn more <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="relative h-full w-1/3 shrink-0" data-carousel-slide="1" aria-hidden="true">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80"
+                         alt="Customer paying at checkout"
+                         class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/60"></div>
+                    <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6 sm:p-10 md:p-12 max-w-3xl mx-auto">
+                        <p class="text-sm font-semibold uppercase tracking-widest text-emerald-300 mb-2">Fast checkout</p>
+                        <h2 class="text-2xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-3">Shop with confidence</h2>
+                        <p class="text-gray-200 text-sm sm:text-base mb-6 max-w-md mx-auto">Secure payments and a smooth experience from cart to door.</p>
+                        <span class="inline-flex items-center justify-center gap-2 rounded-3xl bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm border border-white/20">
+                            <i class="fas fa-shield-alt text-emerald-300"></i> Trusted checkout
+                        </span>
+                    </div>
+                </article>
+                <article class="relative h-full w-1/3 shrink-0" data-carousel-slide="2" aria-hidden="true">
+                    <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1600&q=80"
+                         alt="Retail storefront"
+                         class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/60"></div>
+                    <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6 sm:p-10 md:p-12 max-w-3xl mx-auto">
+                        <p class="text-sm font-semibold uppercase tracking-widest text-amber-300 mb-2">For everyone</p>
+                        <h2 class="text-2xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-3">Your store, your way</h2>
+                        <p class="text-gray-200 text-sm sm:text-base mb-6 max-w-md mx-auto">Discover categories tailored to how you browse and buy.</p>
+                        <span class="inline-flex items-center justify-center gap-2 rounded-3xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md">
+                            <i class="fas fa-store"></i> Explore
+                        </span>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <button type="button"
+                id="carouselPrev"
+                class="absolute left-2 sm:left-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-2xl bg-white/90 text-gray-800 shadow-lg backdrop-blur-sm transition hover:bg-white dark:bg-gray-900/90 dark:text-gray-100 dark:hover:bg-gray-900 border border-gray-200/80 dark:border-gray-700"
+                aria-label="Previous slide">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button type="button"
+                id="carouselNext"
+                class="absolute right-2 sm:right-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-2xl bg-white/90 text-gray-800 shadow-lg backdrop-blur-sm transition hover:bg-white dark:bg-gray-900/90 dark:text-gray-100 dark:hover:bg-gray-900 border border-gray-200/80 dark:border-gray-700"
+                aria-label="Next slide">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <div class="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2" role="tablist" aria-label="Slide indicators">
+            <button type="button" class="carousel-dot h-2.5 rounded-full bg-white shadow transition-all w-8" data-index="0" aria-label="Go to slide 1" aria-current="true"></button>
+            <button type="button" class="carousel-dot h-2.5 w-2.5 rounded-full bg-white/50 shadow transition-all hover:bg-white/80" data-index="1" aria-label="Go to slide 2"></button>
+            <button type="button" class="carousel-dot h-2.5 w-2.5 rounded-full bg-white/50 shadow transition-all hover:bg-white/80" data-index="2" aria-label="Go to slide 3"></button>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        (function () {
+            const track = document.getElementById('carouselTrack');
+            const prev = document.getElementById('carouselPrev');
+            const next = document.getElementById('carouselNext');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const slides = document.querySelectorAll('[data-carousel-slide]');
+            const count = slides.length;
+            let index = 0;
+            let timer = null;
+            const intervalMs = 6000;
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function go(i) {
+                index = ((i % count) + count) % count;
+                const pct = (100 / count) * index;
+                track.style.transform = 'translateX(-' + pct + '%)';
+                dots.forEach(function (d, j) {
+                    var on = j === index;
+                    d.setAttribute('aria-current', on ? 'true' : 'false');
+                    d.classList.toggle('w-8', on);
+                    d.classList.toggle('bg-white', on);
+                    d.classList.toggle('w-2.5', !on);
+                    d.classList.toggle('bg-white/50', !on);
+                });
+                slides.forEach(function (s, j) {
+                    s.setAttribute('aria-hidden', j === index ? 'false' : 'true');
+                });
+            }
+
+            function nextSlide() { go(index + 1); }
+            function prevSlide() { go(index - 1); }
+
+            function startAuto() {
+                if (reduceMotion) return;
+                stopAuto();
+                timer = window.setInterval(nextSlide, intervalMs);
+            }
+            function stopAuto() {
+                if (timer) {
+                    clearInterval(timer);
+                    timer = null;
+                }
+            }
+
+            prev.addEventListener('click', function () { prevSlide(); startAuto(); });
+            next.addEventListener('click', function () { nextSlide(); startAuto(); });
+            dots.forEach(function (dot) {
+                dot.addEventListener('click', function () {
+                    go(parseInt(dot.getAttribute('data-index'), 10));
+                    startAuto();
+                });
+            });
+
+            var viewport = document.getElementById('carouselViewport');
+            viewport.addEventListener('mouseenter', stopAuto);
+            viewport.addEventListener('mouseleave', startAuto);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft') { prevSlide(); startAuto(); }
+                if (e.key === 'ArrowRight') { nextSlide(); startAuto(); }
+            });
+
+            go(0);
+            startAuto();
+        })();
+    </script>
+}

@@ -1,0 +1,68 @@
+@using Playon24.PresentationLayer.Modules.Customers.ViewModels
+@{
+    ViewData["Title"] = "Create Customer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model CustomerCreateViewModel
+
+<div class="p-3 md:p-6 lg:p-10 lg:min-w-[700px] max-w-screen-sm mx-auto">
+
+    <div class="mb-10">
+        <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">Add Customer</h1>
+    </div>
+
+    <form asp-action="Create" method="post" class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl p-8 shadow-sm">
+
+        <div asp-validation-summary="ModelOnly" class="text-red-500 text-sm mb-6"></div>
+
+        <div class="mb-8">
+            <label asp-for="FirstName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"></label>
+            <input asp-for="FirstName" class="w-full px-5 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:outline-none focus:border-blue-500 bg-transparent text-gray-900 dark:text-white" />
+            <span asp-validation-for="FirstName" class="text-red-500 text-sm mt-1 block"></span>
+        </div>
+
+        <div class="mb-8">
+            <label asp-for="LastName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"></label>
+            <input asp-for="LastName" class="w-full px-5 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:outline-none focus:border-blue-500 bg-transparent text-gray-900 dark:text-white" />
+            <span asp-validation-for="LastName" class="text-red-500 text-sm mt-1 block"></span>
+        </div>
+
+        <div class="mb-8">
+            <label asp-for="Email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"></label>
+            <input asp-for="Email" class="w-full px-5 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:outline-none focus:border-blue-500 bg-transparent text-gray-900 dark:text-white" />
+            <span asp-validation-for="Email" class="text-red-500 text-sm mt-1 block"></span>
+        </div>
+
+        <div class="mb-8">
+            <label asp-for="Phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"></label>
+            <input asp-for="Phone" class="w-full px-5 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:outline-none focus:border-blue-500 bg-transparent text-gray-900 dark:text-white" />
+            <span asp-validation-for="Phone" class="text-red-500 text-sm mt-1 block"></span>
+        </div>
+
+        <div class="mb-8">
+            <label asp-for="Address" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"></label>
+            <input asp-for="Address" class="w-full px-5 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:outline-none focus:border-blue-500 bg-transparent text-gray-900 dark:text-white" />
+            <span asp-validation-for="Address" class="text-red-500 text-sm mt-1 block"></span>
+        </div>
+
+        <div class="mb-10">
+            <label asp-for="City" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"></label>
+            <input asp-for="City" class="w-full px-5 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:outline-none focus:border-blue-500 bg-transparent text-gray-900 dark:text-white" />
+            <span asp-validation-for="City" class="text-red-500 text-sm mt-1 block"></span>
+        </div>
+
+        <div class="flex gap-4 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <button type="submit" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 rounded-2xl transition-all active:scale-95">
+                Create Customer
+            </button>
+            <a asp-action="Index" class="flex-1 text-center border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 font-medium py-4 rounded-2xl transition-colors">
+                Cancel
+            </a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
