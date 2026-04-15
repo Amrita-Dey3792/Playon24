@@ -1,6 +1,6 @@
-# 🧾 ASP.NET Invoice Management System
+# ASP.NET Invoice Management System
 
-## 🚀 Features
+## Features
 
 
 ### 1. Product Management
@@ -33,7 +33,7 @@
 - Filter/search invoices by \*\*Customer\*\*
 
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 
 
@@ -49,7 +49,7 @@
 
 
 
-## 🗄️ Database
+##  Database
 
 - Tables:
 
