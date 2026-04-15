@@ -39,7 +39,7 @@
 
 - ASP.NET MVC
 
-- MySQL
+- MSSQL 
 
 - EF Core
 
