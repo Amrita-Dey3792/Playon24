@@ -26,6 +26,7 @@ using Playon24.PresentationLayer.Modules.Invoices;
 using Playon24.PresentationLayer.Modules.Invoices.Interface;
 using Playon24.PresentationLayer.Modules.Products;
 using Playon24.PresentationLayer.Modules.Products.Interface;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,10 +34,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<Payon24DbContext>(options =>
-    options.UseMySql(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
-    ));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
