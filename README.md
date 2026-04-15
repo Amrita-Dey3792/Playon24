@@ -50,7 +50,7 @@
 
 \- ASP.NET MVC
 
-\- MSSQL Server
+\- MySQL
 
 \- EF Core
 
